@@ -16,6 +16,9 @@ CASE = 50
 X0,X1 = 15,35
 Y0,Y1 = 15,35
 
+#nombre de lignes et de colonne dans la grille
+NB_LIGNE = 9
+NB_COLONNE = 9
 
 """  FONCTIONS  """
 
@@ -41,7 +44,7 @@ def interface(fenetre, creation_grille, joueur):
     grille.pack()
 
     # fonction grille
-    creation_grille(grille, fenetre, CASE)
+    creation_grille(grille, fenetre, CASE, NB_COLONNE, NB_LIGNE)
 
     #affichage de "joueur 1" et "joueur 2"
     joueur(cadre3, cadre4)
@@ -60,11 +63,11 @@ def joueur(cadre3, cadre4):
 
 
 #on définie la fonction qui va créer la grille
-def creation_grille(grille, cadre2, CASE):
+def creation_grille(grille, cadre2, CASE, NB_COLONNE, NB_LIGNE):
     #création de la grille sur l'axe horizontal
-    for ligne in range(9):
+    for ligne in range(NB_LIGNE):
         #création de la grille sur l'axe vertical
-        for colonne in range(9):
+        for colonne in range(NB_COLONNE):
             #attribution de la couleur de la case après sa création
             #si case paire, la case est grise
             if (ligne+colonne)%2 == 0:
@@ -110,10 +113,9 @@ def creation_pions(liste_grille, grille, CASE):
     for ligne in liste_grille:
 
         numero_colonne=0
-        
         #on parcours ensuite la liste pour les lignes
         for colonne in ligne:
-            #1 correspond à un pion rouge et 2 correspond à un piont bleu
+            #1 correspond à un pion rouge et 2 correspond à un pion bleu
             if colonne == 1:
                 #création du pion rouge
                 grille.create_oval(X0+CASE*numero_colonne,Y0+(CASE*numero_ligne),X1+CASE*numero_colonne,Y1+(CASE*numero_ligne), fill='#FF5E4D')
@@ -121,9 +123,8 @@ def creation_pions(liste_grille, grille, CASE):
             elif colonne == 2:
                 #création du pion bleu
                 grille.create_oval(X0+CASE*numero_colonne,Y0+(CASE*numero_ligne),X1+CASE*numero_colonne,Y1+(CASE*numero_ligne), fill='#00CCCB')
-               
-            numero_colonne = numero_colonne+1
 
+            numero_colonne = numero_colonne+1
         numero_ligne=numero_ligne+1
 
 
@@ -190,7 +191,7 @@ def fin_partie(cadre1, grille, fenetre, creation_pions):
 """  JEUX DE TESTS  """
 
 #saisie de coordonnées pour tester si la case saisie est dans la grille
-def est_dans_grille():
+def est_dans_grille(NB_COLONNE, NB_LIGNE):
 
     print('TEST DE COORDONNEES DANS LA GRILLE')
     print('Veuillez saisir le numéro de ligne (la grille va de 1 à 9)')
@@ -201,7 +202,7 @@ def est_dans_grille():
     colonne = int(input())
     assert type(colonne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
 
-    assert 0 < ligne <= 9 and 0 < colonne <= 9, "ERREUR COORDONNEES, Les coordonnées saisies ne sont pas dans la grille"
+    assert 0 < ligne <= NB_LIGNE and 0 < colonne <= NB_COLONNE, "ERREUR COORDONNEES, Les coordonnées saisies ne sont pas dans la grille"
     
 
     print("la case saisie est bien dans la grille")
@@ -218,6 +219,6 @@ fenetre.resizable(False, False)
 #lancement de l'interface de jeu
 interface(fenetre, creation_grille, joueur)
 
-est_dans_grille()
+est_dans_grille(NB_COLONNE, NB_LIGNE)
 
 fenetre.mainloop()
