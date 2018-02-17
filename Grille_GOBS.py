@@ -1,6 +1,7 @@
-""" 
-Si vous n'arrivez pas à lancer le programme, veuillez tout d'abord télécharger la dernière version de PYTHON 3.6 sur son site officiel. 
-Ce programme utilise des fonctionnalités d'une bibliothèque intégré à Python qui s'apelle "tkinter". Il vous faut donc Python sur votre PC pour pouvoir exécuter le programme 
+"""  
+Ce programme utilise des fonctionnalités d'une bibliothèque intégré à Python qui s'apelle "tkinter". 
+Il vous faut donc avoir Python d'installé sur votre PC pour pouvoir exécuter le programme 
+Veuillez donc tout d'abord vous assurer d'avoir téléchargé la dernière version de PYTHON 3.6 sur son site officiel.
 
 """
 
@@ -12,7 +13,8 @@ from tkinter import*
 #la longueur d'une case en pixel
 CASE = 50
 
-#coordonnés circulaires pour un pion, XO et YO réprésentant les coordonnées du coin supérieur gauche et X1 et Y1 les coordonnées du coin inférieur droit
+#coordonnés circulaires pour un pion, XO et YO réprésentant les coordonnées du coin 
+#supérieur gauche et X1 et Y1 les coordonnées du coin inférieur droit
 X0,X1 = 15,35
 Y0,Y1 = 15,35
 
@@ -55,10 +57,12 @@ def interface(fenetre, creation_grille, joueur):
 #fonction création des labels "joueur 1" et "joueur 2"
 def joueur(cadre3, cadre4):
 
-    label_joueur1 = Label(cadre3, text = 'JOUEUR 1 : ROUGE', font='Calibri 12', relief='ridge', bg = '#101010', fg = '#ED0000', padx = 2, pady = 5, borderwidth = 3)
+    label_joueur1 = Label(cadre3, text = 'JOUEUR 1 : ROUGE', font='Calibri 12', 
+    relief='ridge', bg = '#101010', fg = '#ED0000', padx = 2, pady = 5, borderwidth = 3)
     label_joueur1.pack()
 
-    label_joueur2 = Label(cadre4, text= 'JOUEUR 2 : BLEU', font='Calibri 12', relief='ridge', bg = '#101010', fg = '#00CCCB', padx = 10, pady = 5, borderwidth = 3)
+    label_joueur2 = Label(cadre4, text= 'JOUEUR 2 : BLEU', font='Calibri 12',
+     relief='ridge', bg = '#101010', fg = '#00CCCB', padx = 10, pady = 5, borderwidth = 3)
     label_joueur2.pack()
 
 
@@ -71,10 +75,12 @@ def creation_grille(grille, cadre2, CASE, NB_COLONNE, NB_LIGNE):
             #attribution de la couleur de la case après sa création
             #si case paire, la case est grise
             if (ligne+colonne)%2 == 0:
-                grille.create_rectangle(colonne*CASE, ligne*CASE, (colonne+1)*CASE, (ligne+1)*CASE, fill='#7F7F7F')
+                grille.create_rectangle(colonne*CASE, ligne*CASE, 
+                (colonne+1)*CASE, (ligne+1)*CASE, fill='#7F7F7F')
             #sinon, la case est noire
             else:
-                grille.create_rectangle(colonne*CASE, ligne*CASE, (colonne+1)*CASE, (ligne+1)*CASE, fill='#101010')
+                grille.create_rectangle(colonne*CASE, ligne*CASE, 
+                (colonne+1)*CASE, (ligne+1)*CASE, fill='#101010')
 
 
 #fonction qui demande à l'utilisateur le configuration de partie demandée
@@ -97,7 +103,8 @@ def type_partie(cadre1, grille, debut_partie, milieu_partie, fin_partie):
         fin_partie(cadre1, grille, fenetre, creation_pions)
 
     else:
-        label_titre = Label(cadre1, text = 'ERREUR CHOIX', bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
+        label_titre = Label(cadre1, text = 'ERREUR CHOIX', bg = '#404040', 
+        fg = 'white', padx = 15, pady = 5, borderwidth = 2)
         label_titre.pack()
         
         print('Veuillez refaire votre choix')
@@ -107,25 +114,24 @@ def type_partie(cadre1, grille, debut_partie, milieu_partie, fin_partie):
 
 #fonction création des pions de la grille en fonction de la liste_grille
 def creation_pions(liste_grille, grille, CASE):
-
-    numero_ligne=0
-    #liste_grille représentant toutes les cases du grille, on parcours donc la liste pour les lignes
+    
+    num_ligne=0
+    #liste_grille représente la liste de la grille, on parcours donc les lignes de la grille
     for ligne in liste_grille:
-
-        numero_colonne=0
+        num_colonne=0
         #on parcours ensuite la liste pour les lignes
         for colonne in ligne:
-            #1 correspond à un pion rouge et 2 correspond à un pion bleu
+            #si le numéro de la colonne est 1, on crée un pion rouge, si le numéro est 2, on créée un pion bleu
             if colonne == 1:
-                #création du pion rouge
-                grille.create_oval(X0+CASE*numero_colonne,Y0+(CASE*numero_ligne),X1+CASE*numero_colonne,Y1+(CASE*numero_ligne), fill='#FF5E4D')
+                grille.create_oval(X0+CASE*num_colonne,Y0+(CASE*num_ligne),
+                X1+CASE*num_colonne,Y1+(CASE*num_ligne), fill='#FF5E4D')
 
             elif colonne == 2:
-                #création du pion bleu
-                grille.create_oval(X0+CASE*numero_colonne,Y0+(CASE*numero_ligne),X1+CASE*numero_colonne,Y1+(CASE*numero_ligne), fill='#00CCCB')
+                grille.create_oval(X0+CASE*num_colonne,Y0+(CASE*num_ligne),
+                X1+CASE*num_colonne,Y1+(CASE*num_ligne), fill='#00CCCB')
 
-            numero_colonne = numero_colonne+1
-        numero_ligne=numero_ligne+1
+            num_colonne = num_colonne+1
+        num_ligne=num_ligne+1
 
 
 """  FONCTIONS QUI GERENT LE PLACEMENT DES PIONS EN FONCTION DE LA PARTIE  """
@@ -133,7 +139,8 @@ def creation_pions(liste_grille, grille, CASE):
 #fonction début de partie qui appelle la fonction de création des pions
 def debut_partie(cadre1, grille, fenetre, creation_pions):
 
-    label_titre = Label(cadre1, text = 'GOBS DEBUT DE PARTIE', bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
+    label_titre = Label(cadre1, text = 'GOBS DEBUT DE PARTIE', 
+    bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
     label_titre.pack()
 
     liste_grille = [[1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -153,7 +160,8 @@ def debut_partie(cadre1, grille, fenetre, creation_pions):
 #fonction milieu de partie qui appelle la fonction de création des pions
 def milieu_partie(cadre1, grille, fenetre, creation_pions):
 
-    label_titre = Label(cadre1, text = 'GOBS MILIEU DE PARTIE', bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
+    label_titre = Label(cadre1, text = 'GOBS MILIEU DE PARTIE', 
+    bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
     label_titre.pack()
 
     liste_grille = [[0, 0, 0, 1, 0, 0, 0, 1, 2], 
@@ -172,7 +180,8 @@ def milieu_partie(cadre1, grille, fenetre, creation_pions):
 #fonction fin de partie qui apelle la fonction de création des pions
 def fin_partie(cadre1, grille, fenetre, creation_pions):
 
-    label_titre = Label(cadre1, text = 'GOBS FIN DE PARTIE', bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
+    label_titre = Label(cadre1, text = 'GOBS FIN DE PARTIE', 
+    bg = '#404040', fg = 'white', padx = 15, pady = 5, borderwidth = 2)
     label_titre.pack()
 
     liste_grille = [[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -193,7 +202,7 @@ def fin_partie(cadre1, grille, fenetre, creation_pions):
 #saisie de coordonnées pour tester si la case saisie est dans la grille
 def est_dans_grille(NB_COLONNE, NB_LIGNE):
 
-    print('TEST DE COORDONNEES DANS LA GRILLE')
+    print('"TEST DE COORDONNEES DANS LA GRILLE"')
     print('Veuillez saisir le numéro de ligne (la grille va de 1 à 9)')
     ligne = int(input())
     assert type(ligne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
@@ -202,9 +211,9 @@ def est_dans_grille(NB_COLONNE, NB_LIGNE):
     colonne = int(input())
     assert type(colonne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
 
-    assert 0 < ligne <= NB_LIGNE and 0 < colonne <= NB_COLONNE, "ERREUR COORDONNEES, Les coordonnées saisies ne sont pas dans la grille"
+    assert 0 < ligne <= NB_LIGNE and 0 < colonne <= NB_COLONNE, "ERREUR COORDONNEES,\
+    les coordonnées saisies ne sont pas dans la grille"
     
-
     print("la case saisie est bien dans la grille")
 
 
@@ -216,7 +225,7 @@ fenetre.title('GOBS Python')
 fenetre['bg']='#101010'
 fenetre.resizable(False, False)
 
-#lancement de l'interface de jeu
+#lancement de l'interface de jeu et du jeu de test de la grille
 interface(fenetre, creation_grille, joueur)
 
 est_dans_grille(NB_COLONNE, NB_LIGNE)
