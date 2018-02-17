@@ -193,15 +193,15 @@ def fin_partie(cadre1, grille, fenetre, creation_pions):
 def est_dans_grille():
 
     print('TEST DE COORDONNEES DANS LA GRILLE')
-    print('Veuillez saisir le numéro de colonne (la grille va de 1 à 9)')
-    a = int(input())
-    assert type(a) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
-
     print('Veuillez saisir le numéro de ligne (la grille va de 1 à 9)')
-    b = int(input())
-    assert type(b) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
+    ligne = int(input())
+    assert type(ligne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
 
-    assert 0 < a <= 9 and 0 < b <= 9, "ERREUR COORDONNEES, Les coordonnées saisies ne sont pas dans la grille"
+    print('Veuillez saisir le numéro de colonne (la grille va de 1 à 9)')
+    colonne = int(input())
+    assert type(colonne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
+
+    assert 0 < ligne <= 9 and 0 < colonne <= 9, "ERREUR COORDONNEES, Les coordonnées saisies ne sont pas dans la grille"
     
 
     print("la case saisie est bien dans la grille")
