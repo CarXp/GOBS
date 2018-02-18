@@ -1,9 +1,30 @@
-"""  
-Ce programme utilise des fonctionnalités d'une bibliothèque intégré à Python qui s'apelle "tkinter". 
-Il vous faut donc avoir Python d'installé sur votre PC pour pouvoir exécuter le programme 
-Veuillez donc tout d'abord vous assurer d'avoir téléchargé la dernière version de PYTHON 3.6 sur son site officiel.
+# ======================================================================================================================
+#             _____  ____  ____   _____   _______     _________ _    _  ____  _   _   
+#            / ____|/ __ \|  _ \ / ____| |  __ \ \   / /__   __| |  | |/ __ \| \ | |
+#           | |  __| |  | | |_) | (___   | |__) \ \_/ /   | |  | |__| | |  | |  \| |
+#           | | |_ | |  | |  _ < \___ \  |  ___/ \   /    | |  |  __  | |  | | . ` |
+#           | |__| | |__| | |_) |____) | | |      | |     | |  | |  | | |__| | |\  |
+#            \_____|\____/|____/|_____/  |_|      |_|     |_|  |_|  |_|\____/|_| \_|
+#   
+# ======================================================================================================================
+# 
+#       Plan du code :
+# 
+#       - CONSTANTES
+#       - FONCTIONS INTERFACE
+#       - FONCTION QUI GERE LA CREATION DES PIONS
+#       - FONCTIONS QUI GERENT LA CREATION DES PIONS
+#       - JEUX DE TESTS
+#       - MAIN
+# 
+# _______________________________________________________________________________________________________________________
+#
+#   Ce programme utilise des fonctionnalités d'une bibliothèque intégré à Python qui s'apelle "tkinter". 
+#   Il vous faut donc avoir Python d'installé sur votre PC pour pouvoir exécuter le programme 
+#   Veuillez donc tout d'abord vous assurer d'avoir téléchargé la dernière version de PYTHON 3.6 sur son site officiel.
+# 
+# _______________________________________________________________________________________________________________________
 
-"""
 
 from tkinter import*
 
@@ -22,7 +43,7 @@ Y0,Y1 = 15,35
 NB_LIGNE = 9
 NB_COLONNE = 9
 
-"""  FONCTIONS  """
+"""  FONCTIONS INTERFACES  """
 
 #fonction qui crée l'interface du début de jeu
 def interface(fenetre, creation_grille, joueur):
