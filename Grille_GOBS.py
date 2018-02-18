@@ -205,11 +205,9 @@ def est_dans_grille(NB_COLONNE, NB_LIGNE):
     print('"TEST DE COORDONNEES DANS LA GRILLE"')
     print('Veuillez saisir le numéro de ligne (la grille va de 1 à 9)')
     ligne = int(input())
-    assert type(ligne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
 
     print('Veuillez saisir le numéro de colonne (la grille va de 1 à 9)')
     colonne = int(input())
-    assert type(colonne) == int, "ERREUR SAISIE, Veuillez entrer un nombre entier"
 
     assert 0 < ligne <= NB_LIGNE and 0 < colonne <= NB_COLONNE, "ERREUR COORDONNEES,\
     les coordonnées saisies ne sont pas dans la grille"
