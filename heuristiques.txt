@@ -1,0 +1,12 @@
+mon programme respecte les consignes concernant :
+
+- les choix de départ (et affichage de grille et des scores (qui s'actualise) en fonction du choix au fil de la partie) 
+- on peut jouer apres avoir affiché la grille (joueur contre joueur ou joueur contre IA)
+- les erreurs de saisies ne font pas planter le programme, il y a une ressaisie derriere
+- les déplacements simples (sur case vide)
+- les déplacements sur une case ennemi (elimination)
+- l'IA avancée qui choisie un pion qui peut se déplacer quelque part, et il privilégie ensuite l'elimination
+- les commentaires
+
+concernant les déplacements par saut, le joueur peut choisir de sauter un pion ennemi (le déplacement est possible et est inclus dans le programme)
+toutefois, sauter un pion ne change pas la couleur du pion (la grille affiche le saut mais le pion adverse ne change pas de camp)
